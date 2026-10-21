@@ -9,7 +9,7 @@ import com.alves.capsula.entity.EstatusChamado;
 
 public interface HistoricoChamadoRepostory
     extends JpaRepository<HistoricoChamado, Long>{
-        List<HistoricoChamado> findByChamado(
+        List<HistoricoChamado> findByEstatusChamado(
             EstatusChamado estatusChamado
         );
     }
