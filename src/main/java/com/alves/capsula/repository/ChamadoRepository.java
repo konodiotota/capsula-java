@@ -8,5 +8,10 @@ import com.alves.capsula.entity.EstatusChamado;
 
 public interface ChamadoRepository
     extends JpaRepository <Chamado, Long>{
-        List<Chamado> findByEstatusChamado(EstatusChamado estatusChamado);
+        List<Chamado> findByUsuario_id(Long usuario_id);
+
+        List<Chamado> findBySolicitante_idAndChamadoEstatus(
+            Long usuario_id,
+            EstatusChamado estatusChamado
+        );
     }

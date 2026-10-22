@@ -8,7 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UsuarioRepository
     extends JpaRepository<Usuario,Long>{
-        List<Usuario> findByPerfil(
+        List<Usuario> findBySolicitante_idAndPerfil(
+            Long usuario_id,
             Perfil perfil
         );
     }

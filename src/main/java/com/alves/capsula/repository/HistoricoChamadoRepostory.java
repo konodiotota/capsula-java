@@ -9,7 +9,8 @@ import com.alves.capsula.entity.EstatusChamado;
 
 public interface HistoricoChamadoRepostory
     extends JpaRepository<HistoricoChamado, Long>{
-        List<HistoricoChamado> findByEstatusChamado(
+        List<HistoricoChamado> findBySolicitante_idAndEstatusChamado(
+            Long usuario_id,
             EstatusChamado estatusChamado
         );
     }
