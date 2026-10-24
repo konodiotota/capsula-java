@@ -24,5 +24,5 @@ public class Usuario {
     
     @Column(name="Perfil", nullable = false, length = 25)
     @Enumerated(EnumType.STRING)
-    private Perfil perfil;
+    private PerfilEnum perfil;
 }

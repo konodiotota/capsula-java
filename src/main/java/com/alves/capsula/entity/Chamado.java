@@ -20,7 +20,7 @@ public class Chamado {
     
     @Column(name="EstatusChamado", nullable = false, length = 25)
     @Enumerated(EnumType.STRING)
-    private EstatusChamado estatusChamado;
+    private StatusChamadoEnum estatusChamado;
 
     @Column(name= "Solicitante", nullable = false, length = 250)
     @ManyToOne
@@ -34,7 +34,7 @@ public class Chamado {
     
     @Column(name="Prioridade",nullable = false, length = 25)
     @Enumerated(EnumType.STRING)
-    private Prioridade prioridade;
+    private PrioridadeEnum prioridade;
 
     @Column(name = "Endereco", nullable = false, length = 350)
     private String endereco;

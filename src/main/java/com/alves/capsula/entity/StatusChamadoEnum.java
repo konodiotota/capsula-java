@@ -1,6 +1,6 @@
 package com.alves.capsula.entity;
 
-public enum EstatusChamado {
+public enum StatusChamadoEnum {
     PENDENTE,
     ACEITO,
     ACAMINHO,

@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.alves.capsula.entity.PerfilEnum;
 import com.alves.capsula.entity.Usuario;
 import com.alves.capsula.model.dto.UsuarioCadastroDTO;
 import com.alves.capsula.repository.UsuarioRepository;
@@ -36,6 +37,7 @@ public class UsuarioService {
         usuario.setNome(dados.getNome());
         usuario.setEmail(dados.getEmail());
         usuario.setHashSenha(passwordEncoder.encode(dados.getSenha()));
+        usuario.setPerfil(PerfilEnum.CLIENTE);
         return usuarioRepository.save(usuario);
     }
 }

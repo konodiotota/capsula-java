@@ -1,7 +1,7 @@
 package com.alves.capsula.entity;
 
-public enum Perfil {
-    SOLICITANTE,
+public enum PerfilEnum {
+    CLIENTE,
     TECNICO,
     ADMINISTRADOR,
 }

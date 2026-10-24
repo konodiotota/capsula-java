@@ -25,15 +25,15 @@ public class HistoricoChamado {
     
     @Column(name = "EstatusChamado", nullable = false, length = 25)
     @Enumerated(EnumType.STRING)
-    private EstatusChamado estatusChamado;
+    private StatusChamadoEnum estatusChamado;
 
     @Column(name = "EstatusAnterior", nullable = false, length = 25)
     @Enumerated(EnumType.STRING)
-    private EstatusChamado estatusAnterior;
+    private StatusChamadoEnum statusAnterior;
     
     @Column(name = "EstatusNovo", nullable = false, length = 25)
     @Enumerated(EnumType.STRING)
-    private EstatusChamado estatusNovo;
+    private StatusChamadoEnum estatusNovo;
 
     @Column(name="Observacoes", nullable = true, length = 250)
     private String observacoes;

@@ -4,7 +4,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.alves.capsula.entity.Chamado;
-import com.alves.capsula.entity.EstatusChamado;
+import com.alves.capsula.entity.StatusChamadoEnum;
 
 public interface ChamadoRepository
     extends JpaRepository <Chamado, Long>{
@@ -12,6 +12,6 @@ public interface ChamadoRepository
 
         List<Chamado> findBySolicitante_idAndChamadoEstatus(
             Long usuario_id,
-            EstatusChamado estatusChamado
+            StatusChamadoEnum estatusChamado
         );
     }

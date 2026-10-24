@@ -1,5 +1,5 @@
 package com.alves.capsula.repository;
-import com.alves.capsula.entity.Perfil;
+import com.alves.capsula.entity.PerfilEnum;
 import com.alves.capsula.entity.Usuario;
 
 import java.util.List;
@@ -13,7 +13,7 @@ public interface UsuarioRepository
 
         List<Usuario> findBySolicitante_idAndPerfil(
             Long usuario_id,
-            Perfil perfil
+            PerfilEnum perfil
         );
         Optional<Usuario> findByEmail(String email);
     }

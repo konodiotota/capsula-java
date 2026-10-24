@@ -1,6 +1,6 @@
 package com.alves.capsula.entity;
 
-public enum Prioridade {
+public enum PrioridadeEnum {
     URGENTE,
     ALTA,
     MEDIA,
