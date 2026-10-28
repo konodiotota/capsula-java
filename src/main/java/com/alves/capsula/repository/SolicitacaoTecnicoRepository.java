@@ -9,5 +9,8 @@ import com.alves.capsula.entity.StatusSolicitacaoEnum;
 
 public interface SolicitacaoTecnicoRepository 
     extends JpaRepository<SolicitacaoTecnico,Long>{
-        
+        List<SolicitacaoTecnico> findByUsuario_idAndStatusChamado(
+            Long usuario_id,
+            StatusSolicitacaoEnum status
+        );
     }
