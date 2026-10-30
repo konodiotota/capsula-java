@@ -9,9 +9,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UsuarioRepository
     extends JpaRepository<Usuario,Long>{
-        List<Usuario> findBySolicitante_id(Long usuario_id);
+        List<Usuario> findByPerfil(PerfilEnum perfil);
 
-        List<Usuario> findBySolicitante_idAndPerfil(
+        List<Usuario> findByUsuario_iddAndPerfil(
             Long usuario_id,
             PerfilEnum perfil
         );

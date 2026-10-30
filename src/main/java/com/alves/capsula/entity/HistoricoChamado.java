@@ -16,24 +16,20 @@ public class HistoricoChamado {
     private Long id;
 
     @ManyToOne  //dentro da tabela HistoricoChamado criaria uma coluna chamado_id que esta relacionado//
-    @JoinColumn(name="chamado_id") //com a talela Chamado, podendo ser acessado usando a variavel chamado//
+    @JoinColumn(name="chamado_id") //com a talela Chamado, podendo ser acessado usando o atribito chamado//
     private Chamado chamado;
 
     @ManyToOne
     @JoinColumn(name="usuario_id")
     private Usuario usuario;
-    
-    @Column(name = "EstatusChamado", nullable = false, length = 25)
-    @Enumerated(EnumType.STRING)
-    private StatusChamadoEnum estatusChamado;
 
-    @Column(name = "EstatusAnterior", nullable = false, length = 25)
+    @Column(name = "StatusAnterior", nullable = false, length = 25)
     @Enumerated(EnumType.STRING)
     private StatusChamadoEnum statusAnterior;
     
-    @Column(name = "EstatusNovo", nullable = false, length = 25)
+    @Column(name = "StatusNovo", nullable = false, length = 25)
     @Enumerated(EnumType.STRING)
-    private StatusChamadoEnum estatusNovo;
+    private StatusChamadoEnum statusNovo;
 
     @Column(name="Observacoes", nullable = true, length = 250)
     private String observacoes;

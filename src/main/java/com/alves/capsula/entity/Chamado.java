@@ -22,7 +22,6 @@ public class Chamado {
     @Enumerated(EnumType.STRING)
     private StatusChamadoEnum estatusChamado;
 
-    @Column(name= "Solicitante", nullable = false, length = 250)
     @ManyToOne
     @JoinColumn(name= "usuario_id")
     private Usuario solicitante;

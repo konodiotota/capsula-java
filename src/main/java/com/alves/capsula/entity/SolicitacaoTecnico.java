@@ -24,7 +24,7 @@ public class SolicitacaoTecnico {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
-    private StatusChamadoEnum estatus;
+    private StatusChamadoEnum status;
 
     @Column(name="data_solicitacao", nullable = false)
     private LocalDateTime dataSolitacao;

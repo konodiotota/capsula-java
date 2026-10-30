@@ -8,7 +8,7 @@ import com.alves.capsula.entity.StatusChamadoEnum;
 
 public interface ChamadoRepository
     extends JpaRepository <Chamado, Long>{
-        List<Chamado> findByUsuario_id(Long usuario_id);
+        List<Chamado> findBySolicitante_id(Long usuario_id);
 
         List<Chamado> findBySolicitante_idAndChamadoEstatus(
             Long usuario_id,

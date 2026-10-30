@@ -1,6 +1,7 @@
 
 package com.alves.capsula.service;
 
+
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public class HistoricoChamadoService {
     public HistoricoChamadoService(HistoricoChamadoRepository historicoChamadoRepository){
         this.historicoChamadoRepository = historicoChamadoRepository;
     }
-    public List<HistoricoChamado> ListarChamadosPorIdUsuario() {
-        
+    public List<HistoricoChamado> buscarPorChamadoId(Long chamado_id){
+        return historicoChamadoRepository.findByChamado_id(chamado_id);
     }
 }
