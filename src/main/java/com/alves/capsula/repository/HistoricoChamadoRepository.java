@@ -16,4 +16,7 @@ public interface HistoricoChamadoRepository
             StatusChamadoEnum statusNovo
         );
         List<HistoricoChamado> findByChamado_Solicitante_Id(Long usuarioId);
-    
+        List<HistoricoChamado> findByChamado_Solicitante_IdAndChamado_Id(
+            Long usuarioId, Long chamadoId
+        );
+    }

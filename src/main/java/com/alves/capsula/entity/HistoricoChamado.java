@@ -35,6 +35,6 @@ public class HistoricoChamado {
     private String observacoes;
 
     @Column(name = "Criado_em", nullable = false, length = 50)
-    private LocalDateTime criado_em;
+    private LocalDateTime criadoEm;
 
 }

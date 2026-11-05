@@ -18,4 +18,5 @@ public interface SolicitacaoTecnicoRepository
             Long usuario_id,
             StatusSolicitacaoEnum status
         );
+        
     }

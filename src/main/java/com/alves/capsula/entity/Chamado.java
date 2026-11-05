@@ -45,11 +45,11 @@ public class Chamado {
     private double longitude;
 
     @Column(name = "Criado_em", nullable = false, length = 100)
-    private LocalDateTime criado_em;
+    private LocalDateTime criadoEm;
 
     @Column(name = "Iniciado_em", nullable = false, length = 100)
-    private LocalDateTime iniciado_em;
+    private LocalDateTime iniciadoEm;
 
     @Column(name = "Concluido_em", nullable = false, length = 100)
-    private LocalDateTime concluido_em;
+    private LocalDateTime concluidoEm;
 }
