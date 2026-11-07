@@ -26,7 +26,6 @@ public class Chamado {
     @JoinColumn(name= "usuario_id")
     private Usuario solicitante;
 
-    @Column(name="NomeTecnico", nullable = false, length= 250)
     @ManyToOne
     @JoinColumn(name = "tecnico_id")
     private Usuario tecnico;
