@@ -37,18 +37,18 @@ public class Chamado {
     @Column(name = "Endereco", nullable = false, length = 350)
     private String endereco;
 
-    @Column(name = "Latitude", nullable = false, length = 40)
+    @Column(name = "Latitude", nullable = true, length = 40)
     private double latitude;
 
-    @Column(name="Longitude", nullable = false, length = 40)
+    @Column(name="Longitude", nullable = true, length = 40)
     private double longitude;
 
-    @Column(name = "Criado_em", nullable = false, length = 100)
+    @Column(name = "Criado_em", nullable = true, length = 100)
     private LocalDateTime criadoEm;
 
-    @Column(name = "Iniciado_em", nullable = false, length = 100)
+    @Column(name = "Iniciado_em", nullable = true, length = 100)
     private LocalDateTime iniciadoEm;
 
-    @Column(name = "Concluido_em", nullable = false, length = 100)
+    @Column(name = "Concluido_em", nullable = true, length = 100)
     private LocalDateTime concluidoEm;
 }

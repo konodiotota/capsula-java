@@ -1,10 +1,11 @@
 package com.alves.capsula.entity;
 
 public enum StatusChamadoEnum {
-    CRIADO,
+    DISPONIVEL,
     PENDENTE,
     ACEITO,
     ACAMINHO,
     ATENDIMENTO,
-    FINALIZADO
+    FINALIZADO,
+    CANCELADO
 }

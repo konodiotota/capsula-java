@@ -2,8 +2,11 @@ package com.alves.capsula.service;
 
 import org.springframework.stereotype.Service;
 import com.alves.capsula.repository.HistoricoChamadoRepository;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
+import com.alves.capsula.entity.Chamado;
 import com.alves.capsula.entity.HistoricoChamado;
 import com.alves.capsula.entity.PerfilEnum;
 import com.alves.capsula.entity.StatusChamadoEnum;
@@ -34,11 +37,34 @@ public class HistoricoChamadoService {
         } 
         return historico;
     }
+    
     public List<HistoricoChamado> listarChamadosPorIdEUsuario (Usuario usuarioLogado, Long usuarioId){
         if (usuarioLogado.getPerfil() != PerfilEnum.ADMINISTRADOR &&
             usuarioLogado.getPerfil() != PerfilEnum.TECNICO) {
             throw new SecurityException("Perfil não autorizado.");
         }
         return historicoChamadoRepository.findByChamado_Solicitante_Id(usuarioId);
+    }
+
+    public HistoricoChamado registrarHistorico(Usuario usuarioLogado, Chamado chamado, StatusChamadoEnum statusAnterior, StatusChamadoEnum statusNovo, String observacao){
+        if(usuarioLogado.getId() == null){
+            throw new SecurityException("Usuario não logado");
+        }
+        if(chamado == null || chamado.getId() == null){
+            throw new IllegalArgumentException("Chamado inválido");
+        }
+        if(statusNovo == null){
+            throw new IllegalArgumentException("Novo status não informado");
+        }
+        HistoricoChamado historico = new HistoricoChamado();
+
+        historico.setUsuario(usuarioLogado);
+        historico.setChamado(chamado);
+        historico.setStatusAnterior(statusAnterior);
+        historico.setStatusNovo(statusNovo);
+        historico.setObservacoes(observacao);
+        historico.setCriadoEm(LocalDateTime.now());
+
+        return historicoChamadoRepository.save(historico);
     }
 }

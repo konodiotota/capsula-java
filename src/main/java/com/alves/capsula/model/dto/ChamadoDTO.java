@@ -1,7 +1,5 @@
 package com.alves.capsula.model.dto;
 
-import java.time.LocalDateTime;
-
 import com.alves.capsula.entity.PrioridadeEnum;
 import com.alves.capsula.entity.StatusChamadoEnum;
 
@@ -34,21 +32,9 @@ public class ChamadoDTO {
     @Size(max=250, message = "Maximo de caracteres 250")
     private String endereco;
 
-    @NotNull(message = "Necessario ter a latitude do chamado")
+    @Size(max = 50, message = "Maximo de 50 caracteres")
     private Double latitude;
 
-    @NotNull(message = "Necessario ter a longitude do chamado")
+    @Size(max = 50, message = "Maximo de 50 caracteres")
     private Double longitude;
-
-    @NotNull(message = "Necessario ter a data de criacao do chamado")
-    @Size(max=100, message = "Maximo de 100 caracteres")
-    private LocalDateTime criadoEm;
-
-    @NotNull(message = "Necessario ter a data de criacao do chamado")
-    @Size(max=100, message = "Maximo de 100 caracteres")
-    private LocalDateTime iniciadoEm;
-
-    @NotNull(message = "Necessario ter a data de criacao do chamado")
-    @Size(max=100, message = "Maximo de 100 caracteres")
-    private LocalDateTime concluidoEm;
 }
