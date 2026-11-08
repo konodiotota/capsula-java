@@ -10,8 +10,10 @@ public interface ChamadoRepository
     extends JpaRepository <Chamado, Long>{
         List<Chamado> findBySolicitante_id(Long usuario_id);
 
-        List<Chamado> findBySolicitante_idAndChamadoEstatus(
+        List<Chamado> findBySolicitante_idAndStatusChamado(
             Long usuario_id,
-            StatusChamadoEnum estatusChamado
+            StatusChamadoEnum statusChamado
         );
+        
+        List<Chamado> findByStatusChamado(StatusChamadoEnum status);
     }

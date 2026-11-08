@@ -18,9 +18,9 @@ public class Chamado {
     @Column(name = "Descricao", nullable = false, length = 250)
     private String descricao;
     
-    @Column(name="EstatusChamado", nullable = false, length = 25)
+    @Column(name="StatusChamado", nullable = false, length = 25)
     @Enumerated(EnumType.STRING)
-    private StatusChamadoEnum estatusChamado;
+    private StatusChamadoEnum statusChamado;
 
     @ManyToOne
     @JoinColumn(name= "usuario_id")
