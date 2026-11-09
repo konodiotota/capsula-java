@@ -37,7 +37,7 @@ public class ChamadoService {
         chamado.setEndereco(dados.getEndereco());
         chamado.setPrioridade(PrioridadeEnum.BAIXA);
         chamado.setSolicitante(usuarioLogado);
-        chamado.setStatusChamado(StatusChamadoEnum.DISPONIVEL);
+        chamado.setStatusChamado(StatusChamadoEnum.PENDENTE);
         return chamadoRepository.save(chamado);
     }
     //Interessante criar um chat entre cliente e tecnico para resolver o chamado, podendo ser presencial ou remoto
