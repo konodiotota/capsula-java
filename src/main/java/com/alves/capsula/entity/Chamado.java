@@ -34,14 +34,14 @@ public class Chamado {
     @Enumerated(EnumType.STRING)
     private PrioridadeEnum prioridade;
 
-    @Column(name = "Endereco", nullable = false, length = 350)
+    @Column(name = "Endereco", nullable = false, length = 250)
     private String endereco;
 
     @Column(name = "Latitude", nullable = true, length = 40)
-    private double latitude;
+    private Double latitude;
 
     @Column(name="Longitude", nullable = true, length = 40)
-    private double longitude;
+    private Double longitude;
 
     @Column(name = "Criado_em", nullable = true, length = 100)
     private LocalDateTime criadoEm;

@@ -19,22 +19,8 @@ public class ChamadoDTO {
     @NotNull(message = "Necessario ter o status do chamado")
     private StatusChamadoEnum statusChamado;
 
-    @NotNull(message = "Necessario ter o id do usuario")
-    private Long usuarioId;
-
-    @NotNull(message = "Necessario ter o id do tecnico")
-    private Long tecnicoId;
-
-    @NotNull(message = "Necessario colocar a prioridade do chamado")
-    private PrioridadeEnum prioridade;
-
     @NotNull(message = "Necessario ter o endereco do chamado")
     @Size(max=250, message = "Maximo de caracteres 250")
     private String endereco;
 
-    @Size(max = 50, message = "Maximo de 50 caracteres")
-    private Double latitude;
-
-    @Size(max = 50, message = "Maximo de 50 caracteres")
-    private Double longitude;
 }
