@@ -1,5 +1,7 @@
 package com.alves.capsula.entity;
 
+import com.alves.capsula.entity.enums.PerfilEnum;
+
 import jakarta.persistence.*;
 import lombok.*;
 

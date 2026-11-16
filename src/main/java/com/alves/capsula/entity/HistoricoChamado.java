@@ -2,6 +2,8 @@ package com.alves.capsula.entity;
 
 import java.time.LocalDateTime;
 
+import com.alves.capsula.entity.enums.StatusChamadoEnum;
+
 import jakarta.persistence.*;
 import lombok.*;
 

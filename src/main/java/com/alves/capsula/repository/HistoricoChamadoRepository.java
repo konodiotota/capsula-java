@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.alves.capsula.entity.HistoricoChamado;
-import com.alves.capsula.entity.StatusChamadoEnum;
+import com.alves.capsula.entity.enums.StatusChamadoEnum;
 
 public interface HistoricoChamadoRepository
     extends JpaRepository<HistoricoChamado, Long>{

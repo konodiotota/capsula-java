@@ -1,4 +1,4 @@
-package com.alves.capsula.entity;
+package com.alves.capsula.entity.enums;
 
 public enum StatusSolicitacaoEnum {
     PENDENTE,

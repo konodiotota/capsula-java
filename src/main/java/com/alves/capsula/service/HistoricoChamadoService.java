@@ -10,9 +10,9 @@ import java.util.List;
 
 import com.alves.capsula.entity.Chamado;
 import com.alves.capsula.entity.HistoricoChamado;
-import com.alves.capsula.entity.PerfilEnum;
-import com.alves.capsula.entity.StatusChamadoEnum;
 import com.alves.capsula.entity.Usuario;
+import com.alves.capsula.entity.enums.PerfilEnum;
+import com.alves.capsula.entity.enums.StatusChamadoEnum;
 
 @Service
 public class HistoricoChamadoService {
@@ -48,7 +48,7 @@ public class HistoricoChamadoService {
         return historicoChamadoRepository.findByChamado_Solicitante_Id(usuarioId);
     }
 
-    @Transactional
+    @Transactional //baiscamente se deu certo commit, se deu errado rollback
     public HistoricoChamado registrarHistorico(Usuario usuarioLogado, Chamado chamado, StatusChamadoEnum statusAnterior, StatusChamadoEnum statusNovo, String observacao){
         if(usuarioLogado == null ||usuarioLogado.getId() == null){
             throw new SecurityException("Usuario não logado");

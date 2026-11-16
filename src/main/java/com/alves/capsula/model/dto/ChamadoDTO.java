@@ -1,6 +1,6 @@
 package com.alves.capsula.model.dto;
 
-import com.alves.capsula.entity.StatusChamadoEnum;
+import com.alves.capsula.entity.enums.StatusChamadoEnum;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 
 
 import com.alves.capsula.entity.Chamado;
-import com.alves.capsula.entity.PerfilEnum;
-import com.alves.capsula.entity.PrioridadeEnum;
-import com.alves.capsula.entity.StatusChamadoEnum;
 import com.alves.capsula.entity.Usuario;
+import com.alves.capsula.entity.enums.PerfilEnum;
+import com.alves.capsula.entity.enums.PrioridadeEnum;
+import com.alves.capsula.entity.enums.StatusChamadoEnum;
 import com.alves.capsula.model.dto.ChamadoDTO;
 import com.alves.capsula.repository.ChamadoRepository;
 

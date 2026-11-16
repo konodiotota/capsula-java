@@ -1,6 +1,6 @@
 package com.alves.capsula.repository;
-import com.alves.capsula.entity.PerfilEnum;
 import com.alves.capsula.entity.Usuario;
+import com.alves.capsula.entity.enums.PerfilEnum;
 
 import java.util.List;
 import java.util.Optional;

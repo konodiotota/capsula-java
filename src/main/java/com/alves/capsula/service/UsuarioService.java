@@ -5,8 +5,8 @@ import java.util.Optional;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.alves.capsula.entity.PerfilEnum;
 import com.alves.capsula.entity.Usuario;
+import com.alves.capsula.entity.enums.PerfilEnum;
 import com.alves.capsula.model.dto.UsuarioCadastroDTO;
 import com.alves.capsula.repository.UsuarioRepository;
 
@@ -36,22 +36,22 @@ public class UsuarioService {
 
         String senhaUsuario= dados.getSenha();
         int tamanhoSenha= senhaUsuario.length();
+        String emailUsuario = dados.getEmail();
 
         if(senhaUsuario == null || tamanhoSenha < 8 || tamanhoSenha > 50){
             throw new IllegalArgumentException("Sua senha deve conter no minimo 8 caracteres e maximo de 50");
         }
-
-        else if (!senhaUsuario.matches(".*[^a-zA-Z0-9].*") || senhaUsuario.contains(" ")) {
+        if (!senhaUsuario.matches(".*[^a-zA-Z0-9].*") || senhaUsuario.contains(" ")) {
         throw new IllegalArgumentException("Use caracteres especiais e não use espaços.");
         } 
-
-        else {
-            Usuario usuario = new Usuario();
-            usuario.setNome(dados.getNome());
-            usuario.setEmail(dados.getEmail());
-            usuario.setHashSenha(passwordEncoder.encode(dados.getSenha()));
-            usuario.setPerfil(PerfilEnum.CLIENTE);
-            return usuarioRepository.save(usuario);
+        if(emailJaCadastrado(emailUsuario)){
+            throw new SecurityException("Email ja cadastrado");
         }
+        Usuario usuario = new Usuario();
+        usuario.setNome(dados.getNome());
+        usuario.setEmail(dados.getEmail());
+        usuario.setHashSenha(passwordEncoder.encode(dados.getSenha()));
+        usuario.setPerfil(PerfilEnum.CLIENTE);
+        return usuarioRepository.save(usuario);
     }
 }
