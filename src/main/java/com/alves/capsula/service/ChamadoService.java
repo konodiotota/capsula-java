@@ -1,5 +1,6 @@
 package com.alves.capsula.service;
 
+import org.springframework.security.access.AccessDeniedException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -28,8 +29,8 @@ public class ChamadoService {
     }
     //Necessario entender sobre SLA (Service Level Agreement), tempo maximo para atendimento
     public Chamado criarChamado(ChamadoDTO dados, Usuario usuarioLogado){
-        if(usuarioLogado == null){
-            throw new SecurityException("Usuario não está logado");
+        if(usuarioLogado == null || usuarioLogado.getId() == null){
+            throw new AccessDeniedException("Usuario não logado");
         }
         Chamado chamado = new Chamado();
         chamado.setCriadoEm(LocalDateTime.now());
@@ -56,6 +57,9 @@ public class ChamadoService {
         usuarioLogado.getPerfil() != PerfilEnum.TECNICO) {
             throw new SecurityException("Usuario sem permissões");
         }
+        if(usuarioLogado == null || usuarioLogado.getId() == null){
+            throw new AccessDeniedException("Usuario não logado");
+        }
         Chamado chamado = chamadoRepository.findById(chamadoId).orElseThrow(() -> new RuntimeException("Esse chamado não esta disponivel"));
         if(chamado.getStatusChamado() != StatusChamadoEnum.PENDENTE){
             throw new IllegalStateException("Este chamado não esta mais disponivel");
@@ -75,6 +79,9 @@ public class ChamadoService {
         if(usuarioLogado.getPerfil() != PerfilEnum.ADMINISTRADOR &&
         usuarioLogado.getPerfil() != PerfilEnum.TECNICO) {
             throw new SecurityException("Usuario sem permissões");
+        }
+        if(usuarioLogado == null || usuarioLogado.getId() == null){
+            throw new AccessDeniedException("Usuario não logado");
         }
 
         Chamado chamado = chamadoRepository.findById(chamadoId).orElseThrow(() -> new RuntimeException("Esse chamado não esta disponivel"));
@@ -99,6 +106,9 @@ public class ChamadoService {
         usuarioLogado.getPerfil() != PerfilEnum.TECNICO) {
             throw new SecurityException("Usuario sem permissões");
         }
+        if(usuarioLogado == null || usuarioLogado.getId() == null){
+            throw new AccessDeniedException("Usuario não logado");
+        }
 
         Chamado chamado = chamadoRepository.findById(chamadoId).orElseThrow(() -> new RuntimeException("Esse chamado não esta disponivel"));
 
@@ -121,6 +131,9 @@ public class ChamadoService {
         if(usuarioLogado.getPerfil() != PerfilEnum.ADMINISTRADOR &&
         usuarioLogado.getPerfil() != PerfilEnum.TECNICO) {
             throw new SecurityException("Usuario sem permissões");
+        }
+        if(usuarioLogado == null || usuarioLogado.getId() == null){
+            throw new AccessDeniedException("Usuario não logado");
         }
 
         Chamado chamado = chamadoRepository.findById(chamadoId).orElseThrow(() -> new RuntimeException("Esse chamado não esta disponivel"));
@@ -145,6 +158,9 @@ public class ChamadoService {
     @Transactional
     public Chamado cancelarChamado(Long chamadoId, Usuario usuarioLogado){
         Chamado chamado = chamadoRepository.findById(chamadoId).orElseThrow(() -> new RuntimeException("Esse chamado não esta disponivel"));
+        if(usuarioLogado == null || usuarioLogado.getId() == null){
+            throw new AccessDeniedException("Usuario não logado");
+        }
         if(!chamado.getSolicitante().getId().equals(usuarioLogado.getId())){
             throw new SecurityException("Você não é o dono do chamado");
         }

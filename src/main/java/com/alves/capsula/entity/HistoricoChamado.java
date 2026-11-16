@@ -37,4 +37,6 @@ public class HistoricoChamado {
     @Column(name = "Criado_em", nullable = false, length = 50)
     private LocalDateTime criadoEm;
 
+    @Column(name = "Concluido_em", nullable = true, length = 50)
+    private LocalDateTime concluidoEm;
 }

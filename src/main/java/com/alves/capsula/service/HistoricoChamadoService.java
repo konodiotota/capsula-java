@@ -3,6 +3,8 @@ package com.alves.capsula.service;
 import org.springframework.stereotype.Service;
 import com.alves.capsula.repository.HistoricoChamadoRepository;
 
+import jakarta.transaction.Transactional;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -46,8 +48,9 @@ public class HistoricoChamadoService {
         return historicoChamadoRepository.findByChamado_Solicitante_Id(usuarioId);
     }
 
+    @Transactional
     public HistoricoChamado registrarHistorico(Usuario usuarioLogado, Chamado chamado, StatusChamadoEnum statusAnterior, StatusChamadoEnum statusNovo, String observacao){
-        if(usuarioLogado.getId() == null){
+        if(usuarioLogado == null ||usuarioLogado.getId() == null){
             throw new SecurityException("Usuario não logado");
         }
         if(chamado == null || chamado.getId() == null){
@@ -56,15 +59,19 @@ public class HistoricoChamadoService {
         if(statusNovo == null){
             throw new IllegalArgumentException("Novo status não informado");
         }
+        if(statusAnterior == statusNovo){
+            throw new IllegalArgumentException("Os dois status não deveriam ser iguais");
+        }
         HistoricoChamado historico = new HistoricoChamado();
-
         historico.setUsuario(usuarioLogado);
         historico.setChamado(chamado);
         historico.setStatusAnterior(statusAnterior);
         historico.setStatusNovo(statusNovo);
         historico.setObservacoes(observacao);
         historico.setCriadoEm(LocalDateTime.now());
-
+        if(chamado.getConcluidoEm() != null){
+            historico.setConcluidoEm(chamado.getConcluidoEm());
+        }
         return historicoChamadoRepository.save(historico);
     }
 }

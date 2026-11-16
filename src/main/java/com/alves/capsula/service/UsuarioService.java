@@ -33,11 +33,25 @@ public class UsuarioService {
         if (emailJaCadastrado(dados.getEmail())){
             throw new IllegalArgumentException("Esse email ja esta cadastrado!");
         }
-        Usuario usuario = new Usuario();
-        usuario.setNome(dados.getNome());
-        usuario.setEmail(dados.getEmail());
-        usuario.setHashSenha(passwordEncoder.encode(dados.getSenha()));
-        usuario.setPerfil(PerfilEnum.CLIENTE);
-        return usuarioRepository.save(usuario);
+
+        String senhaUsuario= dados.getSenha();
+        int tamanhoSenha= senhaUsuario.length();
+
+        if(senhaUsuario == null || tamanhoSenha < 8 || tamanhoSenha > 50){
+            throw new IllegalArgumentException("Sua senha deve conter no minimo 8 caracteres e maximo de 50");
+        }
+
+        else if (!senhaUsuario.matches(".*[^a-zA-Z0-9].*") || senhaUsuario.contains(" ")) {
+        throw new IllegalArgumentException("Use caracteres especiais e não use espaços.");
+        } 
+
+        else {
+            Usuario usuario = new Usuario();
+            usuario.setNome(dados.getNome());
+            usuario.setEmail(dados.getEmail());
+            usuario.setHashSenha(passwordEncoder.encode(dados.getSenha()));
+            usuario.setPerfil(PerfilEnum.CLIENTE);
+            return usuarioRepository.save(usuario);
+        }
     }
 }

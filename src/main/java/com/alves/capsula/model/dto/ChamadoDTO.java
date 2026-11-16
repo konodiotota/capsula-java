@@ -1,6 +1,5 @@
 package com.alves.capsula.model.dto;
 
-import com.alves.capsula.entity.PrioridadeEnum;
 import com.alves.capsula.entity.StatusChamadoEnum;
 
 import jakarta.validation.constraints.NotNull;

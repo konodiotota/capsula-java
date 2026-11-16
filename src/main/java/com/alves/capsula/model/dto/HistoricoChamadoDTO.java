@@ -1,8 +1,6 @@
 
 package com.alves.capsula.model.dto;
 
-import java.time.LocalDateTime;
-
 import com.alves.capsula.entity.StatusChamadoEnum;
 
 import jakarta.validation.constraints.NotNull;
@@ -17,12 +15,6 @@ import lombok.Setter;
 @Getter
 public class HistoricoChamadoDTO {
 
-    @NotNull(message = "Precisa do id do chamado")
-    private Long chamadoId;
-
-    @NotNull(message = "Precisa do id do usuario")
-    private Long usuarioId;
-
     @NotNull(message = "Necessario o status anterior")
     private StatusChamadoEnum statusAnterior;
 
@@ -32,6 +24,4 @@ public class HistoricoChamadoDTO {
     @Size(max = 250, message = "Quantidade maxima de 250 caracteres")
     private String observacoes;
 
-    @NotNull(message = "Necessario colocar a data de criação")
-    private LocalDateTime criadoEm;
 }

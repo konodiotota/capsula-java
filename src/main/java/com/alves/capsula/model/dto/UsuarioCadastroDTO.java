@@ -20,6 +20,6 @@ public class UsuarioCadastroDTO {
     private String email;
 
     @NotBlank(message = "Senha é obrigatório!")
-    @Size(min = 8, max = 72)
+    @Size(min = 8, max = 50)
     private String senha;
 }
