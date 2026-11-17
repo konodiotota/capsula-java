@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @NoArgsConstructor 
-public class UsuarioCadastroDTO {
+public class UsuarioCadastroRequestDTO {
     @NotBlank(message = "O nome é obrigatório!")
     @Size(max = 250, message = "Nome deve ter no maximo 250 caracteres")
     private String nome;

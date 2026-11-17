@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter 
 @Setter 
-public class EnviarMensagemRequestDTO {
+public class MensagemRequestDTO {
     @NotBlank
     @Size(max = 5000)
     private String conteudo;

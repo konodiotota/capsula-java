@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.alves.capsula.entity.Usuario;
 import com.alves.capsula.entity.enums.PerfilEnum;
-import com.alves.capsula.model.dto.UsuarioCadastroDTO;
+import com.alves.capsula.model.dto.UsuarioCadastroRequestDTO;
 import com.alves.capsula.repository.UsuarioRepository;
 
 @Service 
@@ -29,7 +29,7 @@ public class UsuarioService {
         return usuarioRepository.findByEmail(email).isPresent();
     }
     
-    public Usuario cadastrarUsuario(UsuarioCadastroDTO dados){
+    public Usuario cadastrarUsuario(UsuarioCadastroRequestDTO dados){
         if (emailJaCadastrado(dados.getEmail())){
             throw new IllegalArgumentException("Esse email ja esta cadastrado!");
         }

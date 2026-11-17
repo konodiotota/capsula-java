@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Getter 
 @Setter 
-public class ResponseMensagemDTO {
+public class MensagemResponseDTO {
     private Long id;
     private String remetenteNome;
     private String destinatarioNome;
