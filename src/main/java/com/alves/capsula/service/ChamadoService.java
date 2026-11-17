@@ -12,7 +12,7 @@ import com.alves.capsula.entity.Usuario;
 import com.alves.capsula.entity.enums.PerfilEnum;
 import com.alves.capsula.entity.enums.PrioridadeEnum;
 import com.alves.capsula.entity.enums.StatusChamadoEnum;
-import com.alves.capsula.model.dto.ChamadoDTO;
+import com.alves.capsula.model.dto.ChamadoRequestDTO;
 import com.alves.capsula.repository.ChamadoRepository;
 
 import jakarta.transaction.Transactional;
@@ -28,7 +28,7 @@ public class ChamadoService {
         this.historicoChamadoService = historicoChamadoService;
     }
     //Necessario entender sobre SLA (Service Level Agreement), tempo maximo para atendimento
-    public Chamado criarChamado(ChamadoDTO dados, Usuario usuarioLogado){
+    public Chamado criarChamado(ChamadoRequestDTO dados, Usuario usuarioLogado){
         if(usuarioLogado == null || usuarioLogado.getId() == null){
             throw new AccessDeniedException("Usuario não logado");
         }
@@ -45,7 +45,7 @@ public class ChamadoService {
 
     public List<Chamado> verChamadosDisponiveis(Usuario usuarioLogado){
         if(usuarioLogado.getPerfil() != PerfilEnum.ADMINISTRADOR &&
-           usuarioLogado.getPerfil() != PerfilEnum.TECNICO){
+            usuarioLogado.getPerfil() != PerfilEnum.TECNICO){
         throw new SecurityException("Usuario sem permissões");
         }
     return chamadoRepository.findByStatusChamado(StatusChamadoEnum.PENDENTE);

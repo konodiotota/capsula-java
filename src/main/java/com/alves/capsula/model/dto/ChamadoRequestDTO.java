@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter 
 @Setter
 @NoArgsConstructor
-public class ChamadoDTO {
+public class ChamadoRequestDTO {
     @Size(max = 250, message = "Descrição deve ter no maximo 250 caracteres")
     private String descricao;
 
