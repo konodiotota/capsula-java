@@ -11,7 +11,7 @@ public interface UsuarioRepository
     extends JpaRepository<Usuario,Long>{
         List<Usuario> findByPerfil(PerfilEnum perfil);
 
-        List<Usuario> findByUsuario_iddAndPerfil(
+        Optional<Usuario> findByIdAndPerfil(
             Long usuario_id,
             PerfilEnum perfil
         );
